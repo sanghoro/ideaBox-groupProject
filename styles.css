@@ -1,0 +1,50 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper{
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    display: flex;
+
+}
+
+.ideaBox{
+    background: #1F1F3C;
+    width: 20%;
+    height: 100%;
+    
+}
+
+.ideaBox h2{
+    color:#EAEAF4;
+    font-family: "Poppins", sans-serif;
+    
+}
+
+.contentBox{
+    width: 80%;
+    height: 100%;
+}
+
+form{
+    height: 50%;
+    width: 100%;
+    background:  #A8AAD2;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.savedDisplay{
+    height: 50%;
+    width: 100%;
+    background:  #EAEAF4;
+
+}
+
