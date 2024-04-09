@@ -115,7 +115,8 @@ _note: the layout of the cards section when upwards of three cards are saved is 
 - closes dialog popup, returning to previous state
 - leaves the savedIdeas array unaltered
 
-
+## extra extras
+- add date to idea cards using `Date.now()`
 
 
 
