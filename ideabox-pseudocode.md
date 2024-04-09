@@ -17,7 +17,7 @@ features three interactive elements to reference with `querySelector()` -
 
 #### text entry fields  
 display intended input to the left of each text field ('title' and 'body', accordingly)  
-change pointer to a cursor when user hovers over fields
+change pointer to a cursor when user hovers over fields  
 
 _idea: `textarea` in HTML for the body field might enable it to dynamically change size should a user input enough text to exceed viewable space in text field_
 
