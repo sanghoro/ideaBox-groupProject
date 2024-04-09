@@ -1,6 +1,7 @@
 body {
     margin: 0;
     padding: 0;
+    font-family: "Poppins", sans-serif;
 }
 
 .wrapper{
@@ -11,24 +12,42 @@ body {
 
 }
 
+/* idea box styles */
 .ideaBox{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
     background: #1F1F3C;
     width: 20%;
     height: 100%;
     
 }
 
-.ideaBox h2{
+.logo {
     color:#EAEAF4;
-    font-family: "Poppins", sans-serif;
-    
+    text-align: center;
+    font-size: 2.7rem;
+    width: 95%;
+    height: fit-content;
+    margin: .5rem auto;
+    font-weight: bolder;
 }
 
+.show-starred-button {
+    background:#A8AAD2;
+    width: 95%;
+    border: none;
+    height: 3rem;
+}
+
+/* main form and displayed content styles */
 .contentBox{
     width: 80%;
     height: 100%;
 }
 
+/*Form, inputs and button styles*/
 form{
     height: 50%;
     width: 100%;
@@ -41,10 +60,63 @@ form{
     gap: 1rem;
 }
 
-.savedDisplay{
+form label {
+    width: 65%;
+    height: 25%;
+    
+}
+
+.title-input {
+    width: 100%;
+    border: 3px solid #1F1F3C;
+    height: 60%;
+}
+
+.body-input {
+    border: 3px solid #1F1F3C;
+    height: 100%;
+    width: 100%;
+}
+
+form button {
+    background-color: #1F1F3C;
+    border: none;
+    width: 65%;
+    height: 20%;
+    color:#EAEAF4;
+    font-size:x-large;
+    font-weight:bold;
+}
+
+form button:hover {
+    color: #A8AAD2;
+}
+
+/* display parent box and display cards styles */
+
+.idea-display {
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
     height: 50%;
     width: 100%;
     background:  #EAEAF4;
 
 }
+
+.idea-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    height: 90%;
+    width: 25%;
+    border: 2px solid #1F1F3C;
+    background:#FFFFFF;
+    margin-left: 1rem;
+}
+/* 
+.hidden {
+    display: none;
+} */
 
