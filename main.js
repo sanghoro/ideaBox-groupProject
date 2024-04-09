@@ -36,18 +36,16 @@ var newCard = createCard(titleInput.value, bodyInput.value)
 
 
 
-function saveIdea(){
+function saveIdea(e){
     var titleValue = titleInput.value
     var bodyValue = bodyInput.value
-    console.log('titleInputValue', titleInput.value)
-    console.log('bodyInputValue', bodyInput.value)
+
     savedIdeas.push(newCard)
-    console.log('line28', newCard)
-    // ideaCard.innerHTML = ` 
-    // <h2 class='card-title'>${newCard.title}</h2> 
-    // <p class='card-body'>${newCard.body}</p>
-    // `
+    console.log('>>>>',savedIdeas)
+    
+    ideaCard.classList.remove('hidden')
     cardH2.textContent = titleValue
     cardP.textContent = bodyValue  
+    e.preventDefault();
 }
 
