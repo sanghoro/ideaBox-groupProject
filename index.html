@@ -12,21 +12,22 @@
     <main>
         <div class = "wrapper">
         <section class = "ideaBox">
-            <h2>IdeaBox</h2>
+            <div class="logo">IdeaBox</div>
+            <button class="show-starred-button">Show Starred Ideas</button>
         </section>
         <section class = "contentBox">
             <form action="">
-                <label>
-                    Title
-                    <input type="text">
+                <label >
+                    <input class="title-input" placeholder="Title" type="text">
                 </label>
                 <label>
-                    Body
-                    <input type="text">
+                    <input placeholder="body" class="body-input" type="text">
                 </label>
-                <button>Save</button>
+               
             </form>
-            <section class="savedDisplay">display saved items </section>
+            <section class="idea-display">
+                <div class="idea-card">Card</div>
+            </section> 
         </section>
     </div>
     </main>
