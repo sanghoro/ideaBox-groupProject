@@ -1,7 +1,5 @@
 # ideabox
-
-<b><i><big>idea storage - save, search, favorite, delete</big></i></b>
-<br>
+### _idea storage - save, search, favorite, delete_
 
 the application consists of three main sections:
 - input section
