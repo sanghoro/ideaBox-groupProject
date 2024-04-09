@@ -1,29 +1,30 @@
 # ideabox
 ### _idea storage - save, search, favorite, delete_
 
+the purpose of this application is to enable simple recording and management of ideas  
+
 the application consists of three main sections:
 - input section
 - card section
 - sidebar
 
-
 ### input section  
 ___
-features three interactive elements -
-- title text field
-- body text field
+features three interactive elements to reference with `querySelector()` -
+- title text entry field
+- body text entry field
 - save button
 
-#### text fields  
+#### text entry fields  
 display intended input to the left of each text field ('title' and 'body', accordingly)  
 change pointer to a cursor when user hovers over fields
-
 
 _idea: `textarea` in HTML for the body field might enable it to dynamically change size should a user input enough text to exceed viewable space in text field_
 
 #### save button - logic and styling
  
-button will trigger functions that:
+ `querySelector()` needed for referencing button element in the DOM  
+clicking button will trigger functions that:
 - add _unique_ idea object to savedIdeas array
 - display newly entered idea card in card section below
 - display newly created card in the card section
