@@ -32,14 +32,14 @@ function createCard(title, body){
     return card
 }
 
-var newCard = createCard(titleInput.value, bodyInput.value)
+
 
 
 
 function saveIdea(e){
     var titleValue = titleInput.value
     var bodyValue = bodyInput.value
-
+    var newCard = createCard(titleInput.value, bodyInput.value)
     savedIdeas.push(newCard)
     console.log('>>>>',savedIdeas)
     
