@@ -58,16 +58,16 @@ function saveIdea(e){
     
     titleInput.value = '';
     bodyInput.value = '';
-    } else {
-        saveButton.addAttribute('disabled')
+
+    saveButton.setAttribute('disabled', true)
     }
-    
+
 }
 
 function checkInput(){
     if (titleInput.value && bodyInput.value){
         saveButton.removeAttribute('disabled')
     } else {
-        saveButton.addAttribute('disabled')
+        saveButton.setAttribute('disabled', true)
     }
 }
