@@ -5,6 +5,7 @@ var cardH2 = document.querySelector('.idea-card h2')
 var cardP = document.querySelector('.idea-card p')
 var titleInput = document.querySelector('.title-input')
 var bodyInput = document.querySelector('.body-input')
+var ideaDisplay = document.querySelector('.idea-display')
 
 //variables
 var savedIdeas = [];
@@ -41,11 +42,19 @@ function saveIdea(e){
     var bodyValue = bodyInput.value
     var newCard = createCard(titleInput.value, bodyInput.value)
     savedIdeas.push(newCard)
-    console.log('>>>>',savedIdeas)
+
+    var cardDiv = document.createElement('div')
+    var cardTitle = document.createElement('h2')
+    var cardBody = document.createElement('p')
+
+    cardTitle.textContent = titleValue
+    cardBody.textContent = bodyValue
+
+    cardDiv.appendChild(cardTitle)
+    cardDiv.appendChild(cardBody)
+
+    ideaDisplay.appendChild(cardDiv)
     
-    ideaCard.classList.remove('hidden')
-    cardH2.textContent = titleValue
-    cardP.textContent = bodyValue  
+    show(ideaCard)
     e.preventDefault();
 }
-
