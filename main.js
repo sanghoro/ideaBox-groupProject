@@ -5,6 +5,8 @@ var cardH2 = document.querySelector('.idea-card h2')
 var cardP = document.querySelector('.idea-card p')
 var titleInput = document.querySelector('.title-input')
 var bodyInput = document.querySelector('.body-input')
+var ideaDisplay = document.querySelector('.idea-display')
+
 
 //variables
 var savedIdeas = [];
@@ -12,7 +14,8 @@ var savedIdeas = [];
 
 //addEventListeners
 saveButton.addEventListener('click', saveIdea)
-
+titleInput.addEventListener('input', checkInput)
+bodyInput.addEventListener('input', checkInput)
 
 //functions
 function hide(element){
@@ -27,25 +30,44 @@ function createCard(title, body){
     var card = {
         title: title,
         body: body,
-        id: savedIdeas.length - 1
+        // id: savedIdeas.length - 1
     }
     return card
 }
 
+function createCardElement(title, body) {
+    var cardElement = document.createElement('div');
+    cardElement.classList.add('idea-card');
 
+    cardElement.innerHTML = `
+        <h2>${title}</h2>
+        <p>${body}</p>
+    `;
 
-
-
-function saveIdea(e){
-    var titleValue = titleInput.value
-    var bodyValue = bodyInput.value
-    var newCard = createCard(titleInput.value, bodyInput.value)
-    savedIdeas.push(newCard)
-    console.log('>>>>',savedIdeas)
-    
-    ideaCard.classList.remove('hidden')
-    cardH2.textContent = titleValue
-    cardP.textContent = bodyValue  
-    e.preventDefault();
+    return cardElement;
 }
 
+function saveIdea(e){
+    e.preventDefault();
+    if (titleInput.value && bodyInput.value){
+    var newCard = createCard(titleInput.value, bodyInput.value)
+    savedIdeas.push(newCard)
+
+    var cardElement = createCardElement(titleInput.value, bodyInput.value)
+    ideaDisplay.appendChild(cardElement)
+    
+    titleInput.value = '';
+    bodyInput.value = '';
+    } else {
+        saveButton.addAttribute('disabled')
+    }
+    
+}
+
+function checkInput(){
+    if (titleInput.value && bodyInput.value){
+        saveButton.removeAttribute('disabled')
+    } else {
+        saveButton.addAttribute('disabled')
+    }
+}
