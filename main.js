@@ -40,6 +40,10 @@ function createCardElement(title, body) {
     cardElement.classList.add('idea-card');
 
     cardElement.innerHTML = `
+        <div class='card-bar'>
+        <img class="star" src="assets/star.svg" alt="">
+        <img class="delete" src="assets/delete.svg" alt="">    
+        </div>
         <h2>${title}</h2>
         <p>${body}</p>
     `;

@@ -127,6 +127,19 @@ form button:hover {
     margin-left: 1rem;
 }
 
+.card-bar{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    height: 15%;
+    width: 100%;
+    background-color: #1F1F3C;
+}
+
+.hidden {
+    display: none;
+}
+
 .hidden {
     display: none;
 }
