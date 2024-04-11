@@ -79,7 +79,7 @@ form label {
 }
 
 form button {
-    background-color: #1F1F3C;
+    background-color: #cccccc;
     border: none;
     width: 65%;
     height: 20%;
@@ -87,6 +87,17 @@ form button {
     font-size:x-large;
     font-weight:bold;
 }
+
+.save-idea-button{
+    background-color: #1F1F3C;
+    cursor: pointer;
+}
+
+.save-idea-button:disabled{
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
 
 form button:hover {
     color: #A8AAD2;
