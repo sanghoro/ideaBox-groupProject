@@ -93,7 +93,7 @@ function favoriteIdea(event) {
     if (event.target.classList.contains('star')){
     var newCard = createCard(titleInput.value, bodyInput.value)
 
-    favoritedIdea.push(newCard)
+    favoritedIdeas.push(newCard)
 
     var cardElement = createCardElement(newCard)
     ideaDisplay.appendChild(cardElement)
@@ -106,6 +106,14 @@ function favoriteIdea(event) {
 
 }
 
+// we can use the data available to us, the saved and favorited arrays, to populate the card section using a for loop that iteratively places the card elements in the card display container on the page
+
+// card update function must be invoked:
+// when arrays are updated (saving, deleting)
+// when the card view is changed (favorited, all)
+// possibly when favoriting, only if property is used
+
+// cards will only display three most recent cards
 
 // function favoriteIdea(event){
 //     if(event.target.classList.contains('star')){
