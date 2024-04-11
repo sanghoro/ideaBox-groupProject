@@ -18,15 +18,15 @@ bodyInput.addEventListener('input', checkInput)
 
 
 //functions
-function hide(element){
+function hide(element) {
     element.classList.add('hidden')
 }
 
-function show(element){
+function show(element) {
     element.classList.remove('hidden')
 }
 
-function createCard(title, body){
+function createCard(title, body) {
     var card = {
         title: title,
         body: body,
@@ -47,25 +47,32 @@ function createCardElement(title, body) {
     return cardElement;
 }
 
-function saveIdea(e){
+function saveIdea(e) {
     e.preventDefault();
-    if (titleInput.value && bodyInput.value){
-    var newCard = createCard(titleInput.value, bodyInput.value)
-    savedIdeas.push(newCard)
+    if (titleInput.value && bodyInput.value) {
+        var isDuplicate = savedIdeas.some(function(idea) {
+            return idea.title === titleInput.value && idea.body === bodyInput.value
+        })
 
-    var cardElement = createCardElement(titleInput.value, bodyInput.value)
-    ideaDisplay.appendChild(cardElement)
-    
-    titleInput.value = '';
-    bodyInput.value = '';
+        if (!isDuplicate) {
+        var newCard = createCard(titleInput.value, bodyInput.value)
+        savedIdeas.push(newCard)
 
-    saveButton.setAttribute('disabled', true)
+        var cardElement = createCardElement(titleInput.value, bodyInput.value)
+        ideaDisplay.appendChild(cardElement)
+
+        titleInput.value = '';
+        bodyInput.value = '';
+
+        saveButton.setAttribute('disabled', true)
+        } else {
+            alert('Already did that one.')
+        }
     }
-
 }
 
-function checkInput(){
-    if (titleInput.value && bodyInput.value){
+function checkInput() {
+    if (titleInput.value && bodyInput.value) {
         saveButton.removeAttribute('disabled')
     } else {
         saveButton.setAttribute('disabled', true)
