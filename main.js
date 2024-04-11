@@ -13,7 +13,8 @@ var savedIdeas = [];
 
 //addEventListeners
 saveButton.addEventListener('click', saveIdea)
-
+titleInput.addEventListener('input', checkInput)
+bodyInput.addEventListener('input', checkInput)
 
 
 //functions
@@ -29,27 +30,44 @@ function createCard(title, body){
     var card = {
         title: title,
         body: body,
-        id: Date.now()
+        // id: savedIdeas.length - 1
     }
     return card
 }
 
+function createCardElement(title, body) {
+    var cardElement = document.createElement('div');
+    cardElement.classList.add('idea-card');
 
+    cardElement.innerHTML = `
+        <h2>${title}</h2>
+        <p>${body}</p>
+    `;
 
-function saveIdea(title, body){
-   var savedIdea = {
-    id: Date.now(),
-    title: title, 
-    body: body
-   }
+    return cardElement;
+}
 
-   ideaCard.innerHTML = ''
+function saveIdea(e){
+    e.preventDefault();
+    if (titleInput.value && bodyInput.value){
+    var newCard = createCard(titleInput.value, bodyInput.value)
+    savedIdeas.push(newCard)
 
-   var isDuplicate = savedIdeas.some(function (exisitingIdea) {
-    return existingIdea.title === savedIdea.title &&
-           existingIdea.body === savedIdea.body
-        })
-        if (!isDuplicate) {
-            savedIdeas.push(savedIdea)
-        }
+    var cardElement = createCardElement(titleInput.value, bodyInput.value)
+    ideaDisplay.appendChild(cardElement)
+    
+    titleInput.value = '';
+    bodyInput.value = '';
+
+    saveButton.setAttribute('disabled', true)
     }
+
+}
+
+function checkInput(){
+    if (titleInput.value && bodyInput.value){
+        saveButton.removeAttribute('disabled')
+    } else {
+        saveButton.setAttribute('disabled', true)
+    }
+}
