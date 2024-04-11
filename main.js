@@ -6,17 +6,20 @@ var cardP = document.querySelector('.idea-card p')
 var titleInput = document.querySelector('.title-input')
 var bodyInput = document.querySelector('.body-input')
 var ideaDisplay = document.querySelector('.idea-display')
+var contentBox = document.querySelector('.contentBox')
+var starImage = document.querySelector('.star')
 
 //variables
 var savedIdeas = [];
-
+var favoritedIdeas = [];
 
 //addEventListeners
 saveButton.addEventListener('click', saveIdea)
 titleInput.addEventListener('input', checkInput)
 bodyInput.addEventListener('input', checkInput)
 ideaDisplay.addEventListener('click', deleteIdea)
-
+contentBox.addEventListener('click', favoriteIdea)
+// starImage.addEventListener('click', )
 
 //functions
 function hide(element){
@@ -43,7 +46,7 @@ function createCardElement(card) {
 
     cardElement.innerHTML = `
         <div class='card-bar'>
-        <img class="star" src="assets/star.svg" alt="">
+        <img class="star" id="star-icon" src="assets/star.svg" alt="">
         <img class="delete" src="assets/delete.svg" alt="">    
         </div>
         <h2>${card.title}</h2>
@@ -65,7 +68,7 @@ function saveIdea(e){
     bodyInput.value = '';
 
     saveButton.setAttribute('disabled', true)
-    console.log('line68', savedIdeas)
+    // console.log('line68', savedIdeas)
     }
 
 }
@@ -85,3 +88,37 @@ function deleteIdea(event){
         savedIdeas.splice(index, 1)
     }
 } 
+function favoriteIdea(event) {
+    event.preventDefault();
+    if (event.target.classList.contains('star')){
+    var newCard = createCard(titleInput.value, bodyInput.value)
+
+    favoritedIdea.push(newCard)
+
+    var cardElement = createCardElement(newCard)
+    ideaDisplay.appendChild(cardElement)
+    
+    titleInput.value = '';
+    bodyInput.value = '';
+
+    saveButton.setAttribute('disabled', true)
+    }
+
+}
+
+
+// function favoriteIdea(event){
+//     if(event.target.classList.contains('star')){
+//         var index = event.target.parentElement.parentElement.getAttribute('idea-id')
+        
+//         // favoritedIdeas.push()
+//         // newImage('star-icon', "assets/star-active.svg")
+//         console.log('line97', index)
+//         // console.log('line94', favoritedIdeas)
+//     }
+// }
+
+// function newImage(imageId, newSource) {
+//     var starImage = document.querySelector(imageId)
+//     starImage.src = newSource
+//     }
