@@ -15,6 +15,8 @@ var savedIdeas = [];
 saveButton.addEventListener('click', saveIdea)
 titleInput.addEventListener('input', checkInput)
 bodyInput.addEventListener('input', checkInput)
+ideaDisplay.addEventListener('click', deleteIdea)
+
 
 
 //functions
@@ -30,20 +32,24 @@ function createCard(title, body) {
     var card = {
         title: title,
         body: body,
-        // id: savedIdeas.length - 1
+        id: `${Date.now()}`
     }
     return card
 }
 
-function createCardElement(title, body) {
+function createCardElement(card) {
     var cardElement = document.createElement('div');
     cardElement.classList.add('idea-card');
+    cardElement.setAttribute('idea-id', card.id);
 
     cardElement.innerHTML = `
-        <h2>${title}</h2>
-        <p>${body}</p>
+        <div class='card-bar'>
+        <img class="star" src="assets/star.svg" alt="">
+        <img class="delete" src="assets/delete.svg" alt="">    
+        </div>
+        <h2>${card.title}</h2>
+        <p>${card.body}</p>
     `;
-
     return cardElement;
 }
 
@@ -53,6 +59,7 @@ function saveIdea(e) {
         var isDuplicate = savedIdeas.some(function(idea) {
             return idea.title === titleInput.value && idea.body === bodyInput.value
         })
+
 
         if (!isDuplicate) {
         var newCard = createCard(titleInput.value, bodyInput.value)
@@ -68,6 +75,16 @@ function saveIdea(e) {
         } else {
             alert('Already did that one.')
         }
+
+    var cardElement = createCardElement(newCard)
+    ideaDisplay.appendChild(cardElement)
+    
+    titleInput.value = '';
+    bodyInput.value = '';
+
+    saveButton.setAttribute('disabled', true)
+    console.log('line68', savedIdeas)
+
     }
 }
 
@@ -78,3 +95,11 @@ function checkInput() {
         saveButton.setAttribute('disabled', true)
     }
 }
+
+function deleteIdea(event){
+    var index = event.target.parentElement.parentElement.id
+    if(event.target.className === 'delete'){
+        event.target.parentElement.parentElement.remove()
+        savedIdeas.splice(index, 1)
+    }
+} 
