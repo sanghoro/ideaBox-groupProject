@@ -7,15 +7,20 @@ var titleInput = document.querySelector('.title-input')
 var bodyInput = document.querySelector('.body-input')
 var ideaDisplay = document.querySelector('.idea-display')
 
-//variables
+//Data Model
 var savedIdeas = [];
+var favoritedIdeas = [];
 
 
 //addEventListeners
 saveButton.addEventListener('click', saveIdea)
 titleInput.addEventListener('input', checkInput)
 bodyInput.addEventListener('input', checkInput)
-ideaDisplay.addEventListener('click', deleteIdea)
+ideaDisplay.addEventListener('click', function () {
+    var starButton = document.querySelector('star')
+    starButton.addEventListener('click', toggle())
+    deleteIdea; favoriteIdea
+})
 
 
 
@@ -32,7 +37,8 @@ function createCard(title, body) {
     var card = {
         title: title,
         body: body,
-        id: `${Date.now()}`
+        id: `${Date.now()}`,
+        isFavorite: false
     }
     return card
 }
@@ -50,6 +56,7 @@ function createCardElement(card) {
         <h2>${card.title}</h2>
         <p>${card.body}</p>
     `;
+
     return cardElement;
 }
 
@@ -92,4 +99,17 @@ function deleteIdea(event) {
         event.target.parentElement.parentElement.remove()
         savedIdeas.splice(index, 1)
     }
-} 
+}
+
+function favoriteIdea(event) {
+    var index = event.target.parentElement.parentElement.id
+    if (event.target.className === 'star') {
+        star.innerHTML = `<img class="star" src="assets/star-active.svg" alt=""></img>`
+
+    }
+}
+
+function toggle(element) {
+    element.classList.toggle(target.src = 'assets/star.svg')
+    element.classList.toggle(target.src = 'assets/star-active.svg')
+}
