@@ -39,6 +39,11 @@ body {
     width: 95%;
     border: none;
     height: 3rem;
+    cursor:pointer;
+}
+
+.save-idea-button {
+    cursor: pointer;
 }
 
 /* main form and displayed content styles */

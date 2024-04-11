@@ -15,6 +15,7 @@ var savedIdeas = [];
 saveButton.addEventListener('click', saveIdea)
 
 
+
 //functions
 function hide(element){
     element.classList.add('hidden')
@@ -28,33 +29,27 @@ function createCard(title, body){
     var card = {
         title: title,
         body: body,
-        id: savedIdeas.length - 1
+        id: Date.now()
     }
     return card
 }
 
 
 
+function saveIdea(title, body){
+   var savedIdea = {
+    id: Date.now(),
+    title: title, 
+    body: body
+   }
 
+   ideaCard.innerHTML = ''
 
-function saveIdea(e){
-    var titleValue = titleInput.value
-    var bodyValue = bodyInput.value
-    var newCard = createCard(titleInput.value, bodyInput.value)
-    savedIdeas.push(newCard)
-
-    var cardDiv = document.createElement('div')
-    var cardTitle = document.createElement('h2')
-    var cardBody = document.createElement('p')
-
-    cardTitle.textContent = titleValue
-    cardBody.textContent = bodyValue
-
-    cardDiv.appendChild(cardTitle)
-    cardDiv.appendChild(cardBody)
-
-    ideaDisplay.appendChild(cardDiv)
-    
-    show(ideaCard)
-    e.preventDefault();
-}
+   var isDuplicate = savedIdeas.some(function (exisitingIdea) {
+    return existingIdea.title === savedIdea.title &&
+           existingIdea.body === savedIdea.body
+        })
+        if (!isDuplicate) {
+            savedIdeas.push(savedIdea)
+        }
+    }
