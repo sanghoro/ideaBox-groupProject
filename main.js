@@ -56,35 +56,25 @@ function createCardElement(card) {
 function saveIdea(e) {
     e.preventDefault();
     if (titleInput.value && bodyInput.value) {
-        var isDuplicate = savedIdeas.some(function(idea) {
+        var isDuplicate = savedIdeas.some(function (idea) {
             return idea.title === titleInput.value && idea.body === bodyInput.value
         })
-
-
         if (!isDuplicate) {
-        var newCard = createCard(titleInput.value, bodyInput.value)
-        savedIdeas.push(newCard)
 
-        var cardElement = createCardElement(titleInput.value, bodyInput.value)
-        ideaDisplay.appendChild(cardElement)
+            var newCard = createCard(titleInput.value, bodyInput.value)
+            savedIdeas.push(newCard)
 
-        titleInput.value = '';
-        bodyInput.value = '';
+            var cardElement = createCardElement(newCard)
+            ideaDisplay.appendChild(cardElement)
+            titleInput.value = '';
+            bodyInput.value = '';
 
-        saveButton.setAttribute('disabled', true)
+            saveButton.setAttribute('disabled', true)
+
+
         } else {
             alert('Already did that one.')
         }
-
-    var cardElement = createCardElement(newCard)
-    ideaDisplay.appendChild(cardElement)
-    
-    titleInput.value = '';
-    bodyInput.value = '';
-
-    saveButton.setAttribute('disabled', true)
-    console.log('line68', savedIdeas)
-
     }
 }
 
@@ -96,9 +86,9 @@ function checkInput() {
     }
 }
 
-function deleteIdea(event){
+function deleteIdea(event) {
     var index = event.target.parentElement.parentElement.id
-    if(event.target.className === 'delete'){
+    if (event.target.className === 'delete') {
         event.target.parentElement.parentElement.remove()
         savedIdeas.splice(index, 1)
     }
