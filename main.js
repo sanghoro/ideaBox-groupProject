@@ -66,13 +66,14 @@ function saveIdea(e) {
 
             var newCard = createCard(titleInputValue, bodyInputValue)
             savedIdeas.push(newCard)
-
             var cardElement = createCardElement(newCard)
             ideaDisplay.appendChild(cardElement)
             var star = document.getElementById(`${newCard.id}`)
             star.addEventListener('click', favoriteIdea)
             titleInputValue = '';
             bodyInputValue = '';
+            titleInput.value = '';
+            bodyInput.value = '';
 
             saveButton.setAttribute('disabled', true)
 
@@ -115,15 +116,20 @@ function favoriteIdea(event) {
     if (favoritedIdeas.includes(starId)) {
         for (var i = 0; i < favoritedIdeas.length; i++) {
             if (favoritedIdeas[i] === starId) {
-            favoritedIdeas.splice([i], 1)
+                favoritedIdeas.splice([i], 1)
             }
         }
     } else {
         favoritedIdeas.push(starId)
     }
+    toggleStar(starId)
 }
 
-function newImage(imageId, newSource) {
-    var starImage = document.querySelector(imageId)
-    starImage.src = newSource
+function toggleStar(imageId) {
+    var starImage = document.getElementById(imageId)
+    if (favoritedIdeas.includes(imageId)) {
+        starImage.src = `assets/star-active.svg`
+    } else {
+        starImage.src = `assets/star.svg`
+    }
 }
