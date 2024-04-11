@@ -101,15 +101,17 @@ function deleteIdea(event) {
     }
 }
 
-function favoriteIdea(event) {
+function favoriteIdea(event){
     var index = event.target.parentElement.parentElement.id
-    if (event.target.className === 'star') {
-        star.innerHTML = `<img class="star" src="assets/star-active.svg" alt=""></img>`
-
+    if(event.target.classList.contains('star')){
+        favoritedIdeas.push(index)
+        newImage('star-icon', "assets/star-active.svg")
+        console.log('line97', starImage)
+        // console.log('line94', favoritedIdeas)
     }
 }
 
-function toggle(element) {
-    element.classList.toggle(target.src = 'assets/star.svg')
-    element.classList.toggle(target.src = 'assets/star-active.svg')
-}
+function newImage(imageId, newSource) {
+    var starImage = document.querySelector(imageId)
+    starImage.src = newSource
+    }
