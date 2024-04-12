@@ -6,19 +6,22 @@ var cardP = document.querySelector('.idea-card p')
 var titleInput = document.querySelector('.title-input')
 var bodyInput = document.querySelector('.body-input')
 var ideaDisplay = document.querySelector('.idea-display')
+var showStarredButton = document.querySelector('.show-starred-button');
+
 
 //Data Model
 var savedIdeas = [];
 var favoritedIdeas = [];
 var titleInputValue = ''
 var bodyInputValue = ''
+var showingStarred = false;
 
 //addEventListeners
 saveButton.addEventListener('click', saveIdea)
 titleInput.addEventListener('input', setTitle)
 bodyInput.addEventListener('input', setBody)
 ideaDisplay.addEventListener('click', deleteIdea)
-
+showStarredButton.addEventListener('click', toggleStarredIdeas);
 
 
 //functions
@@ -76,8 +79,6 @@ function saveIdea(e) {
             bodyInput.value = '';
 
             saveButton.setAttribute('disabled', true)
-
-
         } else {
             alert('Already did that one.')
         }
@@ -101,7 +102,6 @@ function setBody(e) {
     bodyInputValue = e.target.value
     checkInput()
 }
-
 
 function deleteIdea(event) {
     var index = event.target.parentElement.parentElement.id
@@ -133,3 +133,34 @@ function toggleStar(imageId) {
         starImage.src = `assets/star.svg`
     }
 }
+
+function toggleStarredIdeas() {
+    showingStarred = !showingStarred;
+    if (showingStarred) {
+        showStarredButton.innerText = 'Show All Ideas';
+        displayStarredIdeas();
+    } else {
+        showStarredButton.innerText = 'Show Starred Ideas';
+        displayAllIdeas();
+    }
+}
+
+function displayStarredIdeas() {
+    var allCards = document.querySelectorAll('.idea-card');
+    allCards.forEach(function (card) {
+        if (favoritedIdeas.includes(card.getAttribute('idea-id'))) {
+            show(card);
+        } else {
+            hide(card);
+        }
+    });
+}
+
+function displayAllIdeas() {
+    var allCards = document.querySelectorAll('.idea-card');
+    allCards.forEach(function (card) {
+        show(card);
+    });
+}
+
+checkInput();

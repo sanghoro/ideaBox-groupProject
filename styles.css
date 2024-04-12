@@ -4,7 +4,7 @@ body {
     font-family: "Poppins", sans-serif;
 }
 
-.wrapper{
+.wrapper {
     height: 100vh;
     width: 100%;
     margin: 0;
@@ -13,7 +13,7 @@ body {
 }
 
 /* idea box styles */
-.ideaBox{
+.ideaBox {
     display: flex;
     justify-content: start;
     align-items: center;
@@ -21,11 +21,11 @@ body {
     background: #1F1F3C;
     width: 20%;
     height: 100%;
-    
+
 }
 
 .logo {
-    color:#EAEAF4;
+    color: #EAEAF4;
     text-align: center;
     font-size: 2.7rem;
     width: 95%;
@@ -35,11 +35,11 @@ body {
 }
 
 .show-starred-button {
-    background:#A8AAD2;
+    background: #A8AAD2;
     width: 95%;
     border: none;
     height: 3rem;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .save-idea-button {
@@ -47,16 +47,16 @@ body {
 }
 
 /* main form and displayed content styles */
-.contentBox{
+.contentBox {
     width: 80%;
     height: 100%;
 }
 
 /*Form, inputs and button styles*/
-form{
+form {
     height: 50%;
     width: 100%;
-    background:  #A8AAD2;
+    background: #A8AAD2;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -68,7 +68,7 @@ form{
 form label {
     width: 65%;
     height: 25%;
-    
+
 }
 
 .title-input {
@@ -88,17 +88,17 @@ form button {
     border: none;
     width: 65%;
     height: 20%;
-    color:#EAEAF4;
-    font-size:x-large;
-    font-weight:bold;
+    color: #EAEAF4;
+    font-size: x-large;
+    font-weight: bold;
 }
 
-.save-idea-button{
+.save-idea-button {
     background-color: #1F1F3C;
     cursor: pointer;
 }
 
-.save-idea-button:disabled{
+.save-idea-button:disabled {
     background-color: #cccccc;
     cursor: not-allowed;
 }
@@ -112,11 +112,11 @@ form button:hover {
 
 .idea-display {
     display: flex;
-    justify-content:flex-start;
+    justify-content: flex-start;
     align-items: center;
     height: 50%;
     width: 100%;
-    background:  #EAEAF4;
+    background: #EAEAF4;
 
 }
 
@@ -128,11 +128,11 @@ form button:hover {
     height: 90%;
     width: 25%;
     border: 2px solid #1F1F3C;
-    background:#FFFFFF;
+    background: #FFFFFF;
     margin-left: 1rem;
 }
 
-.card-bar{
+.card-bar {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -148,4 +148,3 @@ form button:hover {
 .hidden {
     display: none;
 }
-
